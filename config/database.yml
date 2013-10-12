@@ -1,0 +1,10 @@
+development:
+  adapter: postgresql
+  database: "bps_dev"
+  host: "localhost"
+
+test:
+  adapter: postgresql
+  database: "bps_test"
+  host: "localhost"
+
