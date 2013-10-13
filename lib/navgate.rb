@@ -7,7 +7,7 @@ class Navgate
       options_to_render = ""
       if options
         options.each do |k,v|
-          options_to_render += ("#{k}=#{v}" + " ") unless ignore?(k)
+          options_to_render += ("#{k}=#{v}" + " ") unless k.ignoring?
         end
       end
       style = styling(options)
@@ -19,20 +19,21 @@ class Navgate
     end
 
     private
+
       def path_for select
         self.namespace ? "/#{self.namespace}/#{select}" : "/#{select}"
       end
 
       def styling options
         if options
-          return "<br>" if options[:verticle] == true
-          return options[:spacing] if options[:spacing]
+          return "<br>" if options[:styling] = :verticle
+          return options[:styling] if options[:styling]
         end
         " "
       end
 
-      def ignore? k
-        k == :verticle || k == :spacing
+      def ignoring?
+         [:styling].include?(self)
       end
 
   end
