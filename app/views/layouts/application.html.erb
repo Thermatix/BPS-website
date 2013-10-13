@@ -9,6 +9,12 @@
 <body>
 
 <%= yield %>
+<nav>
+  <% #@selection.each do |select| %>
+    <% # link_to select.gsub("_"," "),  "#{params[:controller] == 'admin/admin_panel' ? "/admin" : ""}/#{select}/" %>
+  <% #end %>
 
+  <%= render_navigation("class" => "test" ) %>
+</nav>
 </body>
 </html>
