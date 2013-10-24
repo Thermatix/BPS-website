@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>BarkingCameraClub</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>BarkingCameraClub</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= yield %>
-<nav>
-  <% #@selection.each do |select| %>
-    <% # link_to select.gsub("_"," "),  "#{params[:controller] == 'admin/admin_panel' ? "/admin" : ""}/#{select}/" %>
-  <% #end %>
+    <%= yield %>
 
-  <%= render_navigation("class" => "test" ) %>
-</nav>
-</body>
+    <nav>
+      <%= render_navigation( class: "nav links" )  %>
+    </nav>
+  </body>
 </html>

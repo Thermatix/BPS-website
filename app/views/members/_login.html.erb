@@ -1,0 +1,11 @@
+<h2>Please login to the site</h2>
+<% if flash[:notice] || flash[:error] || flash[:alert] %>
+  <%= render 'application/flash' %>
+<% end %>
+<%= form_tag( sessions_path, method: :post) do %>
+  <%= label_tag 'user_email', 'Member Email:' %>
+  <%= text_field_tag 'user_email' %>
+  <%= label_tag 'password','Password:' %>
+  <%= text_field_tag 'password' %>
+  <%= submit_tag "Login" %>
+<% end %>

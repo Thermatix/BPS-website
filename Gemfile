@@ -33,8 +33,8 @@ gem "rmagick", "~> 2.13.2"
 #for slugs
 gem "friendly_id"#, "~> 4.0.10.1"
 
-#for tab based navigation
-gem "tabs_on_rails"
+#for navigation
+gem 'navGATE', path: '/Users/marbecker/.rvm/gems/ruby-2.0.0-p247/gems/navGATE-0.1.26'
 
 group :development, :test do
   # Use debugger
