@@ -1,0 +1,36 @@
+<h1>Members::Member#edit</h1>
+<p>Find me in app/views/members/member/edit.html.erb</p>
+<section>
+  <%= form_tag( member_path(id: current_user.id), method: :patch) do %>
+  <% news_letter,show_images = current_user.settings.split(',').each{|s| s = s.to_b} if current_user.settings %>
+    <section class='password'>
+      New Password <%= password_field_tag 'password' %> <br>
+      Confirm Password <%= password_field_tag 'conf_password' %>
+    </section>
+    <section class='identifiers'>
+      Name <%= text_field_tag 'name', current_user.name %> <br>
+      E-mail <%= text_field_tag 'email',current_user.email %>
+    </section>
+    <section class='settings'>
+      Show images in gallery?(Not implemented yet):
+      <% show_images ? shw_imgs = true : dnt_shw_imgs = true %>
+      yes:<%= radio_button_tag 'images', true, shw_imgs %>,
+      no:<%= radio_button_tag 'images', false, dnt_shw_imgs %>
+      <br>
+      Receive Newsletters?(Not implemented yet):
+      <% news_letter ? rcv_nws = true : dnt_rcv_nws = true %>
+      yes:<%= radio_button_tag 'news_letter', true, rcv_nws %>,
+      no:<%= radio_button_tag 'news_letter', false, dnt_rcv_nws %>
+    </section>
+    <% if current_user.admin %>
+      <br>
+      <section class='admin-status'>
+        Admin status:
+        <% current_user.admin ? admin = true : not_admin = true %>
+        yes:<%= radio_button_tag 'admin', true, admin %>,
+        no:<%= radio_button_tag 'admin', false, not_admin%>
+      </section>
+    <% end %>
+    <%= submit_tag "Update" %>
+  <% end %>
+</section>

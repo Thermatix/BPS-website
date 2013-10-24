@@ -1,0 +1,10 @@
+<h1>Member infomation</h1>
+
+Member ID: <%= @member.id %><br>
+Name: <%= @member.name %><br>
+E-mail: <%= @member.email %><br>
+Joined at: <%= @member.created_at %><br>
+
+<% if @member.id == current_user.id || current_user.admin%>
+  <%= link_to 'Edit Member Details',edit_member_path(current_user) %>
+<% end %>

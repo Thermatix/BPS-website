@@ -3,7 +3,8 @@ class CreateImages < ActiveRecord::Migration
     create_table :images do |t|
       t.string :filename
       t.string :dimensions
-      t.belongs_to :user_id, index: true
+      t.belongs_to :user, index: true
+      t.string :tags, index: true
 
       t.timestamps
     end

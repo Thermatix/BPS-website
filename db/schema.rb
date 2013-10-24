@@ -19,17 +19,20 @@ ActiveRecord::Schema.define(version: 20131012220451) do
   create_table "images", force: true do |t|
     t.string   "filename"
     t.string   "dimensions"
-    t.integer  "user_id_id"
+    t.integer  "user_id"
+    t.string   "tags"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "images", ["user_id_id"], name: "index_images_on_user_id_id", using: :btree
+  add_index "images", ["user_id"], name: "index_images_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "settings"
+    t.string   "password"
+    t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
